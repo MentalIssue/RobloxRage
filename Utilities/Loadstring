@@ -1,0 +1,5 @@
+local Source = "%sLoaderEC.lua"
+local Branch,NotificationTime,IsLocal = "%s",%s,%s
+
+loadstring(IsLocal and readfile("RobloxRage/LoaderEC.lua")
+or game:HttpGet(Source),"Loader")(Branch,NotificationTime,IsLocal)
