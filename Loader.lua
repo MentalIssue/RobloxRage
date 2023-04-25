@@ -1,4 +1,6 @@
 --[[ Loader Executor Checker ]]
+repeat task.wait() until game.IsLoaded
+repeat task.wait() until game.GameId ~= 0
 
 if RobloxRage and RobloxRage.Loaded then
     RobloxRage.Utilities.UI:Notification({
@@ -7,6 +9,22 @@ if RobloxRage and RobloxRage.Loaded then
         Duration = 5
     }) return
 end
+
+local Branch,NotificationTime,IsLocal = ...
+local QueueOnTeleport = queue_on_teleport
+or (syn and syn.queue_on_teleport)
+
+RobloxRage.Loadstring = GetFile("Utilities/Loadstring")
+RobloxRage.Loadstring = RobloxRage.Loadstring:format(
+    RobloxRage.Source,Branch,NotificationTime,
+    tostring(IsLocal)
+)
+
+LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.InProgress then
+        QueueOnTeleport(RobloxRage.Loadstring)
+    end
+end)
 
 local LocalPlayer = game:GetService("Players").LocalPlayer;
 
