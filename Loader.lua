@@ -10,22 +10,6 @@ if RobloxRage and RobloxRage.Loaded then
     }) return
 end
 
-local Branch,NotificationTime,IsLocal = ...
-local QueueOnTeleport = queue_on_teleport
-or (syn and syn.queue_on_teleport)
-
-RobloxRage.Loadstring = GetFile("Utilities/Loadstring")
-RobloxRage.Loadstring = RobloxRage.Loadstring:format(
-    RobloxRage.Source,Branch,NotificationTime,
-    tostring(IsLocal)
-)
-
-LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.InProgress then
-        QueueOnTeleport(RobloxRage.Loadstring)
-    end
-end)
-
 local LocalPlayer = game:GetService("Players").LocalPlayer;
 
 local DName = game.Players.LocalPlayer.DisplayName  -- PlayerInfo Display Name
