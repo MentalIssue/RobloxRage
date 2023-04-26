@@ -3,15 +3,20 @@ repeat task.wait() until game.GameId ~= 0
 
 if RobloxRage and RobloxRage.Loaded then
     RobloxRage.Utilities.UI:Notification({
-        Title = "I Miss The Rage",
+        Title = "RobloxRage",
         Description = "Script already running!",
         Duration = 5
     }) return
-end
 
+    RobloxRage.Utilities.UI:Notification({ 
+         Title = "RobloxRage", 
+         Description = "[1/3] RobloxRage | Loading...", 
+         Duration = 5 
+     }) return     
+end
 --[[if RobloxRage and (RobloxRage.Game and not RobloxRage.Loaded) then
     RobloxRage.Utilities.UI:Notification({
-        Title = "I Miss The Rage",
+        Title = "RobloxRage",
         Description = "Something went wrong!",
         Duration = 5
     }) return
@@ -83,7 +88,7 @@ end)
 RobloxRage.Game = GetGameInfo()
 LoadScript(RobloxRage.Game.Script)
 RobloxRage.Utilities.UI:Notification({
-    Title = "I Miss The Rage",
+    Title = "RobloxRage",
     Description = RobloxRage.Game.Name .. " loaded!",
     Duration = NotificationTime
 }) RobloxRage.Loaded = true
