@@ -10,7 +10,7 @@ if RobloxRage and RobloxRage.Loaded then
     }) return
 end
 
-local LocalPlayer = game:GetService("Players").LocalPlayer;
+local LocalPlayer = game:GetService("Players").LocalPlayer
 
 local DName = game.Players.LocalPlayer.DisplayName  -- PlayerInfo Display Name
 local Name = game.Players.LocalPlayer.Name -- Name
